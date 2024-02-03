@@ -1,7 +1,25 @@
-from tkinter import Tk, BOTH, Canvas
-class Window:
-	def __init__(self, width, height):
-		self.__root = Tk()
-		self.__root.title("Maze copier")
-		self.__canvas = Canvas(self.__root, bg = "white", height = height, width = width)
-		self.__canvas.pack()
+from graphic import Window,Cell
+
+
+def main():
+	window = Window(800,600)
+
+	cell = Cell(50,100, window)
+	cell.left_wall = None
+	cell.draw()
+	
+	cell = Cell(125,200, window)
+	cell.right_wall = None
+	cell.draw()
+	
+	cell = Cell(225,250, window)
+	cell.bottom_wall = None
+	cell.draw()
+	
+	cell = Cell(300,500, window)
+	cell.top_wall = None
+	cell.draw()
+	
+	window.root.mainloop()
+
+main()
