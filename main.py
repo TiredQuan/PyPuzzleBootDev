@@ -4,22 +4,28 @@ from graphic import Window,Cell
 def main():
 	window = Window(800,600)
 
-	cell = Cell(50,100, window)
-	cell.left_wall = None
-	cell.draw()
+	# cell_1 = Cell(50,50,100,100, window)
+	# cell_1.right_wall = None
+	# cell_1.draw()
 	
-	cell = Cell(125,200, window)
-	cell.right_wall = None
-	cell.draw()
+	# cell_2 = Cell(100,50,150,100, window)
+	# cell_2.left_wall = None
+	# cell_2.right_wall = None
+	# cell_2.draw()
 	
-	cell = Cell(225,250, window)
-	cell.bottom_wall = None
-	cell.draw()
+	cell_3 = Cell(150,50,200,100, window)
+	cell_3.bottom_wall = None
+	cell_3.draw()
 	
-	cell = Cell(300,500, window)
-	cell.top_wall = None
-	cell.draw()
+	cell_4 = Cell(200,50,250,100, window)
+	cell_4.top_wall = None
+	cell_4.draw()
+	cell_3.draw_move(cell_4)
 	
+
+
 	window.root.mainloop()
 
 main()
+
+# I FUCKING HATE SHAPES
