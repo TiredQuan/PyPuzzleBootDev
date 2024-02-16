@@ -39,25 +39,29 @@ class Cell():
 		self.y1 = y1
 		self.x2 = x2
 		self.y2 = y2
-		self.top_wall = Line(Point( x1, y1 ),Point( x1, y2 ))
-		self.right_wall = Line(Point( x1, y1 ),Point( x2, y1 ))
-		self.bottom_wall = Line(Point( x2, y1 ),Point( x2, y2 ))
-		self.left_wall = Line(Point( x1, y2 ),Point( x2, y2 ))
-		self.__win = win
+		self.left_wall = Line(Point( x1, y1 ),Point( x1, y2 ))
+		self.top_wall = Line(Point( x1, y1 ),Point( x2, y1 ))
+		self.right_wall = Line(Point( x2, y1 ),Point( x2, y2 ))
+		self.bottom_wall = Line(Point( x1, y2 ),Point( x2, y2 ))
+		self._win = win
 	def draw(self):
-		if self.top_wall:
-			self.__win.draw_line(self.top_wall)
-		if self.right_wall:
-			self.__win.draw_line(self.right_wall)
-		if self.bottom_wall:
-			self.__win.draw_line(self.bottom_wall)
 		if self.left_wall:
-			self.__win.draw_line(self.left_wall)
+			self._win.draw_line(self.left_wall)
+		if self.top_wall:
+			self._win.draw_line(self.top_wall)
+		if self.right_wall:
+			self._win.draw_line(self.right_wall)
+		if self.bottom_wall:
+			self._win.draw_line(self.bottom_wall)
 	def draw_move (self,to_cell, undo=False):
+		fill_color = "red"
+		if undo:
+			fill_color = "gray"
 		# Draw move should take in 2 cells, and then see if there ISN'T an overlap
 		# If there isn't, then draw a line inbetween them
-		mid_x1 = (self.x1 + to_cell.x1)/2
-		mid_x2 = (self.x2 + to_cell.x2)/2
-		mid_y1 = (self.y1 + to_cell.y1)/2
-		mid_y2 = (self.y2 + to_cell.y2)/2
-		move_line = Line(Point(mid_x1, mid_y1),Point(mid_y1, mid_y2), lambda x: "gray" if undo else "red")
+		mid_x = (self.x1 + self.x2)/2
+		mid_y = (self.y1 + self.y2)/2
+		mid_cell_x = (to_cell.x1 + to_cell.x2)/2
+		mid_cell_y = (to_cell.y1 + to_cell.y2)/2
+		move_line = Line(Point(mid_x, mid_y),Point(mid_cell_x, mid_cell_y))
+		self._win.draw_line(move_line,fill_color)

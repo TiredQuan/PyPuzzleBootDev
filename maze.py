@@ -1,0 +1,2 @@
+# The maze should be making cells of 50x50, and the cell mutiplication should end if the pixel on the screen hits the invisible border of 50px padding (self-made value)
+# We could achieve this by making an if statement constantly checking whether or not the increment is smaller than 800x600, AND it should be smaller than (800 - 50) x (600 - 50)
