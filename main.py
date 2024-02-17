@@ -1,8 +1,14 @@
-from graphic import Window,Cell
-
+from graphic import Window
+from maze import Cell, Maze
 
 def main():
 	window = Window(800,600)
+
+	# maze = Maze(
+	# 	50,50,
+	# 	10,10,
+	# 	50,50,
+	# 	window)
 
 	# cell_1 = Cell(50,50,100,100, window)
 	# cell_1.right_wall = None
@@ -31,7 +37,7 @@ def main():
 	cell_3.draw_move(cell_4)
 	cell_3.draw_move(cell_0, True)
 
-	window.root.mainloop()
+	window.run()
 
 main()
 
